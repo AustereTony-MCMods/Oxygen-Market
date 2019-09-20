@@ -1,0 +1,10 @@
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/oxygen-trade",
+  "1.12.2": {
+    "0.9.0": "Initial release."
+  },
+  "promos": {
+    "1.12.2-latest": "0.9.0",
+    "1.12.2-recommended": "0.9.0"
+  }
+}
