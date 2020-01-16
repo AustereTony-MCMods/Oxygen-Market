@@ -1,6 +1,59 @@
+0.10.0b [2020-01-17]
++ Improved menu design.
++ Added timeout for operations in the trading menu to prevent the execution of unauthorized requests (synchronization requests, purchase/creation and cancellation of transactions). The timeout is individual for each player and is reset when the menu is opened using the command.
++ Added 1 second cooldown for sending packets - management operations in the trading menu (creation / cancellation of transactions).
++ Added a cooldown of 500 milliseconds for sending packets - operations in the trade menu (purchase/cancel offers).
++ Added a purchase cancelling if the mailbox is full.
++ Added the ability to prohibit the opening of the trading menu on the client side. To open a menu for a specific player, a chat command can be used.
++ Improved global sales history. The player can view the history of purchases and sales in the trade menu.
++ Added global sales history menu.
++ Added a system for calculating the offers profitability based on sales history. Based on historical data, the average cost of single item is calculated 
+and using this value the deviation is calculated as a percentage of the cost for each offer - profitability percentage. When you hover over 
+the profitability percentage, item market statistics are displayed:
+"(number of transactions completed/total number of items sold): average cost of one item." Profitability displayed for transactions in 
+the "Buy" and "Offers" sections. A profitability filter has been added for the "Buy" section.
++ Added the item unit cost display with decimal numbers with an accuracy of 2 digits. The decimal numbers also can be typed in the unit cost field.
++ Added the average item unit cost display in the "Sale" section.
++ Updated configuration options:
+ Client
+ - "enable_trade_menu_key" [boolean] - enable the "open trading menu" key
+ 
+ Server
+ - "trade_menu_operations_timeout_millis" - [int] - timeout of operations in the trade menu in milliseconds
+ - "enable_trade_menu_access_clientside" - [boolean] (synchronized) - allow the client to open the trading menu
+ - "enable_self_purchase" - [boolean] - allow the self-purchase
+ - "max_offers_per_player" - [int] (synchronized) - the maximum number of offer per player at a time
+ - "items_per_offer_max_amount" - [int] (synchronized) - the maximum number of items that can be sold in one transaction
+ - "price_max_value" - [long] (synchronized) - maximum offer price
+ - "offer_expire_time_hours" - [int] (synchronized) - offer expire time in hours
+ - "enable_sales_history" - [boolean] - enable global sales history
+ - "enable_sales_history_sync" - [boolean] (synchronized) - enable synchronization of the global sales history with all players
+ - "sales_history_expire_time_hours" - [int] -the history record expire time in hours
+ - "offer_creation_fee_percent" - [int] (synchronized) - fee for creating an offer (percentage of the total price)
+ - "offer_sale_fee_percent" - [int] (synchronized) - commission on the sale (percentage of the total price)
+ 
++ Added chat commands:
+  Server - Operators [/oxygenop]
+  - Open the trade menu: /oxygenop trade -open-menu <target>
+  - Cancel the deal: /oxygenop trade -cancel-offer <offer id> <flag>
+  - Clear global sales history: /oxygenop trade <mode> <args>
+ 
+  Client [/oxygenc]
+  - Open the trade menu: /oxygenc trade
+  - Open the global sales history menu: /oxygenc trade -sales-history
+  - Reset client data: /oxygenc trade -reset-data
+
++ Added client settings:
+  Common
+  - the ability to open the trading menu through the general menu (Oxygen Menu)
+  - calculate the offers profitability
+ 
+  Interface
+  - menu alignment
+
 0.9.1b [2019-09-22]
-+Backport to Forge 2768.
-+Added french localization.
++ Backport to Forge 2768.
++ Added french localization.
 
 0.9.0b [2019-09-20]
-+Initial release.
++ Initial release.
