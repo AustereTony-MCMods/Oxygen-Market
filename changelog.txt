@@ -1,6 +1,12 @@
+0.10.1b [2020-01-30]
++ Changes related to updating the API for working with timestamps.
++ Improved profitability calculation of offers, now the calculation will be performed after synchronizing the sales history.
++ Added displaying of market data for items in the inventory (when hovering over the average price) for the "Sale" section in the trade menu.
+
 0.10.0b [2020-01-17]
 + Improved menu design.
-+ Added timeout for operations in the trading menu to prevent the execution of unauthorized requests (synchronization requests, purchase/creation and cancellation of transactions). The timeout is individual for each player and is reset when the menu is opened using the command.
++ Added timeout for operations in the trading menu to prevent the execution of unauthorized requests (synchronization requests, purchase/creation 
+and cancellation of transactions). The timeout is individual for each player and is reset when the menu is opened using the command.
 + Added 1 second cooldown for sending packets - management operations in the trading menu (creation / cancellation of transactions).
 + Added a cooldown of 500 milliseconds for sending packets - operations in the trade menu (purchase/cancel offers).
 + Added a purchase cancelling if the mailbox is full.
@@ -22,7 +28,7 @@ the "Buy" and "Offers" sections. A profitability filter has been added for the "
  - "trade_menu_operations_timeout_millis" - [int] - timeout of operations in the trade menu in milliseconds
  - "enable_trade_menu_access_clientside" - [boolean] (synchronized) - allow the client to open the trading menu
  - "enable_self_purchase" - [boolean] - allow the self-purchase
- - "max_offers_per_player" - [int] (synchronized) - the maximum number of offer per player at a time
+ - "max_offers_per_player" - [int] (synchronized) - the maximum number of offers per player at a time
  - "items_per_offer_max_amount" - [int] (synchronized) - the maximum number of items that can be sold in one transaction
  - "price_max_value" - [long] (synchronized) - maximum offer price
  - "offer_expire_time_hours" - [int] (synchronized) - offer expire time in hours
@@ -35,8 +41,8 @@ the "Buy" and "Offers" sections. A profitability filter has been added for the "
 + Added chat commands:
   Server - Operators [/oxygenop]
   - Open the trade menu: /oxygenop trade -open-menu <target>
-  - Cancel the deal: /oxygenop trade -cancel-offer <offer id> <flag>
-  - Clear global sales history: /oxygenop trade <mode> <args>
+  - Cancel the offer: /oxygenop trade -cancel-offer <offer id> <flag>
+  - Clear global sales history: /oxygenop trade -clear-history <mode> <args>
  
   Client [/oxygenc]
   - Open the trade menu: /oxygenc trade
@@ -46,7 +52,7 @@ the "Buy" and "Offers" sections. A profitability filter has been added for the "
 + Added client settings:
   Common
   - the ability to open the trading menu through the general menu (Oxygen Menu)
-  - calculate the offers profitability
+  - calculate the offer profitability
  
   Interface
   - menu alignment
