@@ -1,3 +1,13 @@
+0.11.1b [2020-06-16]
++ Reduced market operations cooldown from 1000 to 500 milliseconds.
++ Fixed disappearance of sales statistics for items in inventory when placing a new offer.
+
+0.11.1b [2020-06-07]
++ Added localizations: Chinese, Polish and French.
+
+0.11.0b [2020-03-19]
++ GUI optimization.
+
 0.10.1b [2020-01-30]
 + Changes related to updating the API for working with timestamps.
 + Improved profitability calculation of offers, now the calculation will be performed after synchronizing the sales history.
